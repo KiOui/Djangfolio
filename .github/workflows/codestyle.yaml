@@ -34,7 +34,3 @@ jobs:
     - name: Check server
       run: |
         poetry run python3 djangfolio/manage.py check
-
-    - name: Perform tests
-      run: |
-        poetry run python3 djangfolio/manage.py test djangfolio
