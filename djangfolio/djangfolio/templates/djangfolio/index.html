@@ -115,7 +115,7 @@
             </div>
         </div>
     {% endif %}
-    {% if contact_form %}
+    {% if active_user.enable_contact_me %}
         <div class="p-1 mt-5" id="contact">
             <div class="col mw-600">
                 <div class="divider">
@@ -127,9 +127,9 @@
                 </div>
                 <form method="post">
                     {% if succeeded %}
-                        <p class="container-fluid message-ok">Uw contactbericht is verzonden!</p>
+                        <p class="container-fluid message-ok">Your message has been send successfully!</p>
                     {% elif failed %}
-                        <p class="container-fluid message-error">Er is iets misgegaan met het verzenden van uw contactbericht.</p>
+                        <p class="container-fluid message-error">Something went wrong while sending your message, please try again later.</p>
                     {% endif %}
                     {% csrf_token %}
                     {{ contact_form }}

@@ -1,8 +1,7 @@
 from django.views.generic import TemplateView
-from .forms import ContactFormCaptcha
-from django.conf import settings
 from django.shortcuts import render
 from mail.services import send_email, generate_contact_email
+from .services import get_contact_form
 
 
 class IndexView(TemplateView):
@@ -19,12 +18,8 @@ class IndexView(TemplateView):
         :return: a render of the index.html page, either with or without a contact form (if email settings are
         specified)
         """
-        if settings.EMAIL_HOST and settings.EMAIL_PORT:
-            return render(
-                request, self.template_name, {"contact_form": ContactFormCaptcha()}
-            )
-        else:
-            return render(request, self.template_name, {})
+        context = {"contact_form": get_contact_form()}
+        return render(request, self.template_name, context)
 
     def post(self, request, **kwargs):
         """
@@ -35,11 +30,7 @@ class IndexView(TemplateView):
         :return: a render of the index.html page, either with a succeeded or failed message indicating if the request
         was send successfully or not
         """
-        if settings.EMAIL_HOST and settings.EMAIL_PORT:
-            form = ContactFormCaptcha(request.POST)
-        else:
-            return render(request, self.template_name, {})
-
+        form = get_contact_form(request.POST)
         context = {"contact_form": form}
 
         if form.is_valid():
@@ -52,7 +43,7 @@ class IndexView(TemplateView):
             )
             if send_email(request, text_content, html_content, email):
                 context["succeeded"] = True
-                context["contact_form"] = ContactFormCaptcha()
+                context["contact_form"] = get_contact_form()
                 return render(request, self.template_name, context)
             else:
                 context["failed"] = True
