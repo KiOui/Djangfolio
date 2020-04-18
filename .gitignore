@@ -146,5 +146,4 @@ mailsettings.py
 # Docker
 docker-compose.yml
 database_init/*.sql
-nginx/conf.d/*.conf
 database/

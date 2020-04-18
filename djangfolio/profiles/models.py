@@ -49,7 +49,7 @@ class Career(models.Model):
 
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     start_time = models.DateField(null=False, blank=False)
-    end_time = models.DateField(null=True)
+    end_time = models.DateField(null=True, blank=True)
     title = models.CharField(max_length=512, blank=False)
     short_description = models.TextField(blank=True)
     institution = models.CharField(max_length=256, blank=True)
@@ -72,8 +72,8 @@ class Project(models.Model):
     """Project model."""
 
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    start_time = models.DateField(null=True)
-    end_time = models.DateField(null=True)
+    start_time = models.DateField(null=True, blank=True)
+    end_time = models.DateField(null=True, blank=True)
     title = models.CharField(max_length=512, blank=False)
     image = models.ImageField()
     description = models.TextField(null=True, blank=True)
