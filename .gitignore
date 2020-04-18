@@ -130,9 +130,14 @@ dmypy.json
 
 # Django
 db.sqlite3
+media/
 
 # macOS
 .DS_Store
 
 # PyCharm
 .idea/
+
+# Django settings
+captchasettings.py
+mailsettings.py
