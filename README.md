@@ -7,7 +7,7 @@ Welcome to ```Djangfolio```! A portfolio template website created in [Django](ht
 - A nice projects page including the project the user has done with respective image and link.
 - A contact page where someone is able to contact the user.
 
-All of these sections are optional and automatically hidden if no model objects/settings are present to display the corresponding section.
+All of these sections are optional and automatically hidden if no model objects/settings are present to display the corresponding section. An example of a website using this repository is [my personal website](https://larsvanrhijn.nl).
 
 ## Setup
 There are three ways you could deploy the code in this repository. You could use the Django application in the repository and run it somewhere yourself. Another method is to use the [Docker image]() and deploy it somewhere yourself. The last way is to use the ```docker-compose.yml.example``` file in this repository and set up a complete Docker environment yourself. This last method is explained below:
