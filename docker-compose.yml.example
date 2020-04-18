@@ -1,0 +1,56 @@
+---
+version: '3.5'
+
+services:
+    djangfolio-nginx:
+        container_name: 'djangfolio_nginx'
+        image: nginx:latest
+        restart: 'always'
+        volumes:
+            - './media/:/djangfolio/media/'
+            - './static/:/djangfolio/static/'
+            - './nginx/conf.d:/etc/nginx/conf.d'
+        networks:
+          - backend-django-djangfolio
+    djangfolio-postgres:
+        container_name: 'djangfolio_postgres'
+        image: 'postgres:11.5'
+        restart: 'always'
+        volumes:
+            - './database/:/var/lib/postgresql/data/'
+            - './database_init/:/docker-entrypoint-initdb.d/'
+        environment:
+            PGDATA: '/var/lib/postgresql/data/pgdata'
+        networks:
+          - backend-django-djangfolio
+
+    djangfolio-django:
+        image: "larsvanrhijn/djangfolio:latest"
+        restart: 'always'
+        container_name: djangfolio_django
+        depends_on:
+          - 'djangfolio-nginx'
+          - 'djangfolio-postgres'
+        expose:
+            - '8000'
+        volumes:
+            - './static:/djangfolio/src/website/static/'
+            - './media:/djangfolio/src/website/media/'
+            - './log/:/djangfolio/log/'
+        environment:
+            DJANGO_SECRET_KEY: '[django_secret_key]'
+            POSTGRES_HOST: 'postgres'
+            POSTGRES_NAME: 'django'
+            POSTGRES_USER: 'django'
+            POSTGRES_PASSWORD: '[postgres_password]'
+            VIRTUAL_HOST: '[hostname]'
+            VIRTUAL_PROTO: 'uwsgi'
+            DJANGO_RECAPTCHA_PUBLIC_KEY: '[recaptcha_public_key]'
+            DJANGO_RECAPTCHA_PRIVATE_KEY: '[recaptcha_private_key]'
+        
+        networks:
+        - backend-django-djangfolio
+
+networks:
+  backend-django-djangfolio:
+    driver: bridge

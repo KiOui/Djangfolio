@@ -1,0 +1,7 @@
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+djangfolio/db.sqlite3
+djangfolio/media/
+djangfolio/static/

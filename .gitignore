@@ -131,6 +131,7 @@ dmypy.json
 # Django
 db.sqlite3
 media/
+static/
 
 # macOS
 .DS_Store
@@ -141,3 +142,9 @@ media/
 # Django settings
 captchasettings.py
 mailsettings.py
+
+# Docker
+docker-compose.yml
+database_init/*.sql
+nginx/conf.d/*.conf
+database/
