@@ -21,7 +21,7 @@ DEBUG = False
 
 SESSION_COOKIE_SECURE = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 DATABASES = {
     "default": {
@@ -55,9 +55,11 @@ if os.environ.get("DJANGO_EMAIL_HOST"):
     EMAIL_USE_TLS = os.environ.get("DJANGO_EMAIL_USE_TLS", False) == "True"
     EMAIL_USE_SSL = os.environ.get("DJANGO_EMAIL_USE_SSL", False) == "True"
 
-if os.environ.get("DJANGO_RECAPTCHA_PUBLIC_KEY") and os.environ.get("DJANGO_RECAPTCHA_PRIVATE_KEY"):
-    RECAPTCHA_PUBLIC_KEY = os.environ['DJANGO_RECAPTCHA_PUBLIC_KEY']
-    RECAPTCHA_PRIVATE_KEY = os.environ['DJANGO_RECAPTCHA_PRIVATE_KEY']
+if os.environ.get("DJANGO_RECAPTCHA_PUBLIC_KEY") and os.environ.get(
+    "DJANGO_RECAPTCHA_PRIVATE_KEY"
+):
+    RECAPTCHA_PUBLIC_KEY = os.environ["DJANGO_RECAPTCHA_PUBLIC_KEY"]
+    RECAPTCHA_PRIVATE_KEY = os.environ["DJANGO_RECAPTCHA_PRIVATE_KEY"]
 else:
     RECAPTCHA_PUBLIC_KEY = ""
     RECAPTCHA_PRIVATE_KEY = ""

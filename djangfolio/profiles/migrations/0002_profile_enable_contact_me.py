@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('profiles', '0001_initial'),
+        ("profiles", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='profile',
-            name='enable_contact_me',
-            field=models.BooleanField(default=False, verbose_name='Enable the contact me section'),
+            model_name="profile",
+            name="enable_contact_me",
+            field=models.BooleanField(
+                default=False, verbose_name="Enable the contact me section"
+            ),
         ),
     ]

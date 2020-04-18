@@ -5,6 +5,7 @@ from captcha.widgets import ReCaptchaV3
 
 class ContactForm(forms.Form):
     """Contact form."""
+
     name = forms.CharField(label="Name")
     title = forms.CharField(label="Title")
     email = forms.EmailField(label="Email-address")

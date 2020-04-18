@@ -19,7 +19,9 @@ class Profile(models.Model):
     career_title = models.CharField(max_length=512, default="Career")
     projects_title = models.CharField(max_length=512, default="Projects")
     contact_me_title = models.CharField(max_length=512, default="Contact me")
-    enable_contact_me = models.BooleanField(default=False, verbose_name="Enable the contact me section")
+    enable_contact_me = models.BooleanField(
+        default=False, verbose_name="Enable the contact me section"
+    )
 
     def save(self, *args, **kwargs):
         """
