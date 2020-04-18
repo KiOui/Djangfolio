@@ -6,23 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('profiles', '0002_profile_enable_contact_me'),
+        ("profiles", "0002_profile_enable_contact_me"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='career',
-            name='end_time',
+            model_name="career",
+            name="end_time",
             field=models.DateField(blank=True, null=True),
         ),
         migrations.AlterField(
-            model_name='project',
-            name='end_time',
+            model_name="project",
+            name="end_time",
             field=models.DateField(blank=True, null=True),
         ),
         migrations.AlterField(
-            model_name='project',
-            name='start_time',
+            model_name="project",
+            name="start_time",
             field=models.DateField(blank=True, null=True),
         ),
     ]
