@@ -18,9 +18,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'djangfolio/css/bootstrap.css' %}"/>
     {% block styles %}{% endblock %}
-    <script src="https://kit.fontawesome.com/4e8cabe8e2.js" crossorigin="anonymous"></script>
+    <script src="{% static 'djangfolio/fontawesome/js/all.min.js' %}" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.tiny.cloud/1/sx4eugpieda3a9a2mjzq9xh0ht6h59prb6wgd8gd3yqcjif5/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="{% static 'djangfolio/js/tinymce/tinymce.min.js' %}"></script>
 </head>
 <body>
     {% include 'djangfolio/header.html' %}
