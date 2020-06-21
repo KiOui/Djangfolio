@@ -36,14 +36,14 @@ jobs:
 
     - name: "Test migrations"
       run: |
-        poetry run python djangfolio/manage.py makemigrations --no-input --check --dry-run
+        poetry run python website/manage.py makemigrations --no-input --check --dry-run
 
     - name: Check server
       run: |
-        poetry run python3 djangfolio/manage.py check
+        poetry run python3 website/manage.py check
 
     - name: "Run Django tests using Coverage"
-      run: "poetry run coverage run djangfolio/manage.py test djangfolio/"
+      run: "poetry run coverage run website/manage.py test website/"
 
     - name: "Check Coverage report"
       run: "poetry run coverage report"

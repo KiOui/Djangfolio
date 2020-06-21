@@ -35,7 +35,7 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
 
     - name: "Run Black"
-      run: "poetry run black --quiet --check djangfolio"
+      run: "poetry run black --quiet --check website"
 
     - name: "Run PyDocStyle"
       run: "poetry run pydocstyle --explain --add-ignore=D100,D104 --match-dir='(?!migrations).*'"
