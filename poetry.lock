@@ -270,7 +270,7 @@ python-versions = "*"
 version = "2020.6.8"
 
 [[package]]
-category = "dev"
+category = "main"
 description = "Python 2 and 3 compatibility utilities"
 name = "six"
 optional = false
@@ -347,7 +347,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "7559355165757e466e84454802b43a726405adaf293f8d91f50ccad6ceb4591e"
+content-hash = "1747f1240c6343a8db40b33362c7e91f5e25222d11fd1477aa828d2f1787e5ed"
 python-versions = "^3.7"
 
 [metadata.files]
