@@ -26,6 +26,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sitemaps",
+    "django.contrib.sites",
+    "robots",
     "captcha",
     "djangfolio",
     "profiles",
@@ -112,4 +115,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 
-RECAPTCHA_REQUIRED_SCORE = 0.7
+# Sites app
+SITE_ID = 1
+
+# Robots app
+ROBOTS_CACHE_TIMEOUT = 60 * 60 * 24
