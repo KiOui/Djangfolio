@@ -16,6 +16,7 @@ uwsgi = "^2.0.18"
 psycopg2-binary = "^2.8.5"
 django-robots = "^4.0"
 coverage = "^5.1"
+six = "^1.15.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
