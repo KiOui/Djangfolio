@@ -1,0 +1,32 @@
+{% load static %}
+<nav class="navbar navbar-expand-md sticky-top site-header navbar-white">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="ml-auto navbar-nav">
+                {% if active_user.about_me %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about_me">About</a>
+                    </li>
+                {% endif %}
+                {% if active_user.career %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#career">Career</a>
+                    </li>
+                {% endif %}
+                {% if active_user.projects %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                {% endif %}
+                {% if active_user.enable_contact_me %}
+                    <li class="nav-item">
+                        <a class="btn btn-primary nav-link text-white" href="#contact">Contact</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
