@@ -3,6 +3,11 @@
 {% block styles %}
     <link rel="stylesheet" href="{% static 'djangfolio/css/index.css' %}"/>
 {% endblock %}
+
+{% block favicon %}
+    <link rel="shortcut icon" type="image/png" href="{{ active_user.picture.url }}"/>
+{% endblock %}
+
 {% block page %}
     <header class="container-fluid text-white text-center page-header">
         <div class="align-content-center">

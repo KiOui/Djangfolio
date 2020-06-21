@@ -14,7 +14,7 @@
     </title>
     {% include 'djangfolio/analytics.html' %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="{% static 'djangfolio/img/favicon.png' %}"/>
+    {% block favicon %}{% endblock %}
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'djangfolio/css/bootstrap.css' %}"/>
     {% block styles %}{% endblock %}

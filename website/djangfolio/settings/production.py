@@ -47,6 +47,9 @@ LOGGING = {
     "loggers": {"": {"handlers": ["file"], "level": "DEBUG", "propagate": True,},},
 }
 
+if os.environ.get("GOOGLE_ANALYTICS_KEY"):
+    GOOGLE_ANALYTICS_KEY = os.environ.get("GOOGLE_ANALYTICS_KEY")
+
 if os.environ.get("DJANGO_EMAIL_HOST"):
     EMAIL_HOST = os.environ["DJANGO_EMAIL_HOST"]
     EMAIL_PORT = os.environ["DJANGO_EMAIL_PORT"]
