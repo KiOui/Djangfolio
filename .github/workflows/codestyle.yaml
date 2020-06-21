@@ -1,11 +1,11 @@
 ---
 
-name: "Coding style"
+name: "Linting"
 on: "push"
 
 jobs:
   lint:
-    name: "Linting and testing"
+    name: "Linting"
     runs-on: "ubuntu-latest"
     steps:
 
@@ -17,20 +17,25 @@ jobs:
       with:
         python-version: '3.7'
 
-    - name: "Setup Poetry"
+    - name: "Install Poetry"
       run: |
-        python -m pip install --upgrade --no-cache-dir pip
-        python -m pip install --no-cache-dir poetry
-        poetry install
+        python -m pip install --upgrade pip
+        python -m pip install poetry
+
+    - name: "Restore any cached Poetry dependencies"
+      uses: actions/cache@v1
+      with:
+        path: ~/.cache/pypoetry/virtualenvs
+        key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-poetry-
+
+    - name: "Install any new dependencies"
+      run: poetry install
+      if: steps.cache.outputs.cache-hit != 'true'
+
     - name: "Run Black"
-      run: "poetry run black --check djangfolio"
+      run: "poetry run black --quiet --check website"
 
     - name: "Run PyDocStyle"
-      run: "poetry run pydocstyle --explain --add-ignore=D100,D104 --match-dir='(?!migrations).*' djangfolio"
-
-    - name: "Check for dead code"
-      run: "poetry run vulture --min-confidence=90 djangfolio"
-      
-    - name: Check server
-      run: |
-        poetry run python3 djangfolio/manage.py check
+      run: "poetry run pydocstyle --explain --add-ignore=D100,D104 --match-dir='(?!migrations).*'"

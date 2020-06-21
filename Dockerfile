@@ -25,4 +25,4 @@ RUN apt-get update && \
     poetry install --no-interaction --no-ansi --no-dev
 
 
-COPY djangfolio /djangfolio/src/website/
+COPY website /djangfolio/src/website/
