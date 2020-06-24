@@ -28,7 +28,7 @@ services:
           - backend-django-djangfolio
 
     djangfolio-django:
-        image: "larsvanrhijn/djangfolio:latest"
+        image: "docker.pkg.github.com/kioui/djangfolio/djangfolio:latest"
         restart: 'always'
         container_name: djangfolio_django
         depends_on:
