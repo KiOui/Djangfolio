@@ -130,8 +130,7 @@ dmypy.json
 
 # Django
 db.sqlite3
-media/
-static/
+/website/media/
 
 # macOS
 .DS_Store
