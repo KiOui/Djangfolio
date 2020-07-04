@@ -8,22 +8,22 @@
             <ul class="ml-auto navbar-nav">
                 {% if active_user.about_me %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#about_me">About</a>
+                        <a class="nav-link" href="#about_me">{{ active_user.about_me_title }}</a>
                     </li>
                 {% endif %}
                 {% if active_user.career %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#career">Career</a>
+                        <a class="nav-link" href="#career">{{ active_user.career_title }}</a>
                     </li>
                 {% endif %}
                 {% if active_user.projects %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
+                        <a class="nav-link" href="#projects">{{ active_user.projects_title }}</a>
                     </li>
                 {% endif %}
                 {% if active_user.enable_contact_me %}
                     <li class="nav-item">
-                        <a class="btn btn-primary nav-link text-white" href="#contact">Contact</a>
+                        <a class="btn btn-primary nav-link text-white" href="#contact">{{ active_user.contact_me_title }}</a>
                     </li>
                 {% endif %}
             </ul>
