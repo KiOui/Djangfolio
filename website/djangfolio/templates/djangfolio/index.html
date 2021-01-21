@@ -9,13 +9,13 @@
 {% endblock %}
 
 {% block page %}
-    <header class="container-fluid text-white text-center page-header">
+    <header class="container-fluid text-white text-center page-header bg-main">
         <div class="align-content-center">
             <img class="profile-image" src="{{ active_user.picture.url }}"/>
             <div class="divider">
                 <div class="divider-line bg-white"></div>
                 <div class="divider-centered-text">
-                    <h1 class="font-weight-bolder">{{ active_user.first_name|upper }} {{ active_user.second_name|upper }}</h1>
+                    <h1 class="">{{ active_user.first_name|upper }} {{ active_user.second_name|upper }}</h1>
                 </div>
                 <div class="divider-line bg-white"></div>
             </div>
@@ -27,15 +27,15 @@
     {% if active_user.about_me %}
         <div class="container-fluid pt-5" id="about_me">
         <div class="divider">
-            <div class="divider-line bg-primary"></div>
+            <div class="divider-line bg-main"></div>
             <div class="divider-centered-text">
-                <h2 class="font-weight-bolder text-primary">{{ active_user.about_me_title|upper }}</h2>
+                <h2 class="font-weight-bolder color-main">{{ active_user.about_me_title|upper }}</h2>
             </div>
-            <div class="divider-line bg-primary"></div>
+            <div class="divider-line bg-main"></div>
         </div>
         <div>
             <div class="col-sm mw-600">
-                <p>
+                <p class="color-main">
                     {{ active_user.about_me }}
                 </p>
             </div>
@@ -43,19 +43,19 @@
         <div class="row">
             <div class="col text-center image-links">
                 {% if active_user.github_url %}
-                        <a class="ml-2 mr-2" href="{{ active_user.github_url }}"><i class="fab fa-github"></i></a>
+                        <a class="ml-2 mr-2 color-main" href="{{ active_user.github_url }}"><i class="fab fa-github"></i></a>
                 {% endif %}
                 {% if active_user.linkedin_url %}
-                    <a class="ml-2 mr-2" href="{{ active_user.linkedin_url }}"><i class="fab fa-linkedin"></i></a>
+                    <a class="ml-2 mr-2 color-main" href="{{ active_user.linkedin_url }}"><i class="fab fa-linkedin"></i></a>
                 {% endif %}
                 {% if active_user.twitter_url %}
-                    <a class="ml-2 mr-2" href="{{ active_user.twitter_url }}"><i class="fab fa-twitter"></i></a>
+                    <a class="ml-2 mr-2 color-main" href="{{ active_user.twitter_url }}"><i class="fab fa-twitter"></i></a>
                 {% endif %}
                 {% if active_user.facebook_url %}
-                    <a class="ml-2 mr-2" href="{{ active_user.facebook_url }}"><i class="fab fa-facebook"></i></a>
+                    <a class="ml-2 mr-2 color-main" href="{{ active_user.facebook_url }}"><i class="fab fa-facebook"></i></a>
                 {% endif %}
                 {% if active_user.instagram_url %}
-                    <a class="ml-2 mr-2" href="{{ active_user.instagram_url }}"><i class="fab fa-instagram"></i></a>
+                    <a class="ml-2 mr-2 color-main" href="{{ active_user.instagram_url }}"><i class="fab fa-instagram"></i></a>
                 {% endif %}
             </div>
         </div>
@@ -64,19 +64,19 @@
     {% if active_user.career %}
         <div class="container-fluid pt-5" id="career">
             <div class="divider">
-                <div class="divider-line bg-primary"></div>
+                <div class="divider-line bg-main"></div>
                 <div class="divider-centered-text">
-                    <h2 class="font-weight-bolder text-primary">{{ active_user.career_title|upper }}</h2>
+                    <h2 class="font-weight-bolder color-main">{{ active_user.career_title|upper }}</h2>
                 </div>
-                <div class="divider-line bg-primary"></div>
+                <div class="divider-line bg-main"></div>
             </div>
             <div class="timeline">
                 {% for career in active_user.career %}
                     <div class="container-timeline {% if forloop.counter|divisibleby:2 %}left{% else %}right{% endif %}">
                         <div class="content">
-                            <h2>{{ career.start_time|date:'F Y' }}{% if career.end_time %} - {{ career.end_time|date:'F Y' }}{% endif %}</h2>
-                            {% if career.institution %}<p class="font-italic">{{ career.institution }}</p>{% endif %}
-                            <p class="text-secondary">{{ career.title }}</p>
+                            <h2 class="color-secondary">{{ career.start_time|date:'F Y' }}{% if career.end_time %} - {{ career.end_time|date:'F Y' }}{% endif %}</h2>
+                            {% if career.institution %}<p class="font-italic color-secondary">{{ career.institution }}</p>{% endif %}
+                            <p class="color-secondary">{{ career.title }}</p>
                             {% if career.short_description %}<p>{{ career.short_description }}</p>{% endif %}
                         </div>
                     </div>
@@ -85,7 +85,7 @@
         </div>
     {% endif %}
     {% if active_user.projects %}
-        <div class="container-fluid mt-5 bg-primary pt-5" id="projects">
+        <div class="container-fluid mt-5 bg-main pt-5" id="projects">
             <div class="divider">
                 <div class="divider-line bg-white"></div>
                 <div class="divider-centered-text">
@@ -100,17 +100,17 @@
                             <div class="project-container">
                                 <div class="project-image" style="background-image: url('{{ project.image.url }}')"></div>
                                 <div class="project-text">
-                                    <h5 class="text-primary">{{ project.title }}</h5>
+                                    <h5 class="color-main">{{ project.title }}</h5>
                                     {% if project.start_time %}
-                                        <p class="text-primary">{{ project.start_time|date:'F Y' }}{% if project.end_time %} - {{ project.end_time|date:'F Y' }}{% endif %}</p>
+                                        <p class="color-main">{{ project.start_time|date:'F Y' }}{% if project.end_time %} - {{ project.end_time|date:'F Y' }}{% endif %}</p>
                                     {% endif %}
                                     {% if project.short_description %}
-                                        <p class="text-primary">{{ project.short_description }}</p>
+                                        <p class="color-main">{{ project.short_description }}</p>
                                     {% elif project.description %}
-                                        <p class="text-primary">{{ project.description|truncatewords:20 }}</p>
+                                        <p class="color-main">{{ project.description|truncatewords:20 }}</p>
                                     {% endif %}
                                     {% if project.url %}
-                                        <a class="btn btn-primary wide" href="{{ project.url }}">{{ project.url }}</a>
+                                        <a class="btn btn-main wide" href="{{ project.url }}">{{ project.url }}</a>
                                     {% endif %}
                                 </div>
                             </div>
@@ -124,21 +124,21 @@
         <div class="p-1 mt-5" id="contact">
             <div class="col mw-600">
                 <div class="divider">
-                    <div class="divider-line bg-primary"></div>
+                    <div class="divider-line bg-main"></div>
                     <div class="divider-centered-text">
-                        <h2 class="font-weight-bolder text-primary">{{ active_user.contact_me_title|upper }}</h2>
+                        <h2 class="font-weight-bolder color-main">{{ active_user.contact_me_title|upper }}</h2>
                     </div>
-                    <div class="divider-line bg-primary"></div>
+                    <div class="divider-line bg-main"></div>
                 </div>
                 <form method="post">
                     {% if succeeded %}
-                        <p class="container-fluid message-ok">Your message has been send successfully!</p>
+                        <p class="alert alert-success">Your message has been send successfully!</p>
                     {% elif failed %}
-                        <p class="container-fluid message-error">Something went wrong while sending your message, please try again later.</p>
+                        <p class="alert alert-danger">Something went wrong while sending your message, please try again later.</p>
                     {% endif %}
                     {% csrf_token %}
                     {{ contact_form }}
-                    <input class="btn btn-primary mt-3" type="submit" value="Send"/>
+                    <input class="btn btn-main mt-3" type="submit" value="Send"/>
                 </form>
             </div>
         </div>
