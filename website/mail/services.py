@@ -47,10 +47,11 @@ def send_email(request, text_content, html_content, email_address):
     :return: True if the mail was send successfully, False otherwise
     """
     msg = EmailMultiAlternatives(
-        "{}: contact form".format(request.META["HTTP_HOST"]),
-        text_content,
-        settings.EMAIL_HOST_USER,
-        [email_address],
+        subject="{}: contact form".format(request.META["HTTP_HOST"]),
+        body=text_content,
+        from_email=settings.EMAIL_HOST_USER,
+        to=[email_address],
+        bcc=[settings.EMAIL_HOST_USER],
     )
     msg.attach_alternative(html_content, "text/html")
     try:
