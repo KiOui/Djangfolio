@@ -38,9 +38,7 @@ class IndexView(TemplateView):
             email = form.cleaned_data.get("email")
             title = form.cleaned_data.get("title")
             message = form.cleaned_data.get("content")
-            text_content, html_content = generate_contact_email(
-                request, name, title, message, email
-            )
+            text_content, html_content = generate_contact_email(request, name, title, message, email)
             if send_email(request, text_content, html_content, email):
                 context["succeeded"] = True
                 context["contact_form"] = get_contact_form()
