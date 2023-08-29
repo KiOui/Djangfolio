@@ -6,7 +6,7 @@ authors = ["Lars van Rhijn <larsvanrhijn@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-django = "^4.1.7"
+django = "^4.1.10"
 uwsgi = "^2.0.22"
 psycopg2-binary = "^2.8.6"
 six = "^1.15.0"
